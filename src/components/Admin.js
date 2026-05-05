@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import axios from "axios";
 import Navbar from "./Auth/Navbar";
 import { API_URL } from "./Services/Config";
@@ -24,13 +24,15 @@ const Admin = () => {
   const [isCreatingCategory, setIsCreatingCategory] = useState(false);
 
   const token = getToken();
-  const authHeaders = token
-    ? {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    : {};
+  const authHeaders = useMemo(() => {
+    return token
+      ? {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      : {};
+  }, [token]);
 
   const fetchCategories = useCallback(async () => {
     try {
@@ -43,7 +45,7 @@ const Admin = () => {
       );
       console.error("Erreur chargement categories", error);
     }
-  }, [API_URL]);
+  }, []);
 
   const fetchProducts = useCallback(async () => {
     try {
@@ -52,7 +54,7 @@ const Admin = () => {
     } catch (error) {
       console.error("Erreur chargement produits", error);
     }
-  }, [API_URL]);
+  }, []);
 
   const fetchOrders = useCallback(async () => {
     try {
@@ -61,7 +63,7 @@ const Admin = () => {
     } catch (error) {
       console.error("Erreur chargement commandes", error);
     }
-  }, [API_URL, authHeaders]);
+  }, [authHeaders]);
 
   const handleUpdateOrderStatus = useCallback(async (orderId, newStatus) => {
     try {
@@ -76,7 +78,7 @@ const Admin = () => {
       setMessage("Erreur lors de la mise à jour du statut");
       console.error(error);
     }
-  }, [API_URL, authHeaders, fetchOrders]);
+  }, [authHeaders, fetchOrders]);
 
   useEffect(() => {
     fetchCategories();
