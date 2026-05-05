@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_URL } from "../Services/Config";
 import { saveToken } from "../Services/autorization";
-import logo from "../layouts/logoR.png";
+import logoMallSn from "../layouts/logo.jpeg";
 
 function Login() {
   const navigate = useNavigate();
@@ -66,15 +66,14 @@ function Login() {
           }}
         >
           <img
-            src={logo}
-            alt="Mall SN Logo"
+            src={logoMallSn}
+            alt="Logo Mall SN"
             style={{
               width: "400px",
               height: "auto",
-              marginBottom: "20px",
-              animation: "fadeIn 0.8s ease-in",
-              marginBottom: "-50px",
               marginTop: "-50px",
+              marginBottom: "-50px",
+              animation: "fadeIn 0.8s ease-in",
             }}
           />
           <h1

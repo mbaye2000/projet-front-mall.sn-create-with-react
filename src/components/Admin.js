@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import Navbar from "./Auth/Navbar";
 import { API_URL } from "./Services/Config";
-import { getToken, getUser } from "./Services/autorization";
+import { getToken } from "./Services/autorization";
 import Footer from "./Footer";
 
 const Admin = () => {
@@ -24,7 +24,6 @@ const Admin = () => {
   const [isCreatingCategory, setIsCreatingCategory] = useState(false);
 
   const token = getToken();
-  const user = getUser();
   const authHeaders = token
     ? {
         headers: {
@@ -33,7 +32,7 @@ const Admin = () => {
       }
     : {};
 
-  const fetchCategories = async () => {
+  const fetchCategories = useCallback(async () => {
     try {
       const response = await axios.get(`${API_URL}/categories`);
       setCategories(response.data.categories || []);
@@ -44,27 +43,27 @@ const Admin = () => {
       );
       console.error("Erreur chargement categories", error);
     }
-  };
+  }, [API_URL]);
 
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
       const response = await axios.get(`${API_URL}/products`);
       setProducts(response.data.products || []);
     } catch (error) {
       console.error("Erreur chargement produits", error);
     }
-  };
+  }, [API_URL]);
 
-  const fetchOrders = async () => {
+  const fetchOrders = useCallback(async () => {
     try {
       const response = await axios.get(`${API_URL}/orders`, authHeaders);
       setOrders(response.data || []);
     } catch (error) {
       console.error("Erreur chargement commandes", error);
     }
-  };
+  }, [API_URL, authHeaders]);
 
-  const handleUpdateOrderStatus = async (orderId, newStatus) => {
+  const handleUpdateOrderStatus = useCallback(async (orderId, newStatus) => {
     try {
       await axios.patch(
         `${API_URL}/orders/${orderId}/status`,
@@ -77,13 +76,13 @@ const Admin = () => {
       setMessage("Erreur lors de la mise à jour du statut");
       console.error(error);
     }
-  };
+  }, [API_URL, authHeaders, fetchOrders]);
 
   useEffect(() => {
     fetchCategories();
     fetchProducts();
     fetchOrders();
-  }, []);
+  }, [fetchCategories, fetchProducts, fetchOrders]);
 
   const handleCreateCategory = async (e) => {
     e.preventDefault();

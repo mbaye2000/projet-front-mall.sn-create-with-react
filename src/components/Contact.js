@@ -3,6 +3,7 @@ import Navbar from "./Auth/Navbar";
 import axios from "axios";
 import { API_URL } from "../Services/Config";
 import Footer from "./Footer";
+import logoMallSn from "./layouts/logo.jpeg";
 
 function Contact() {
   const [formData, setFormData] = useState({
@@ -58,6 +59,17 @@ function Contact() {
             animation: "fadeIn 0.8s ease-in",
           }}
         >
+          <img
+            src={logoMallSn}
+            alt="Logo Mall SN"
+            style={{
+              width: "400px",
+              height: "auto",
+              marginTop: "-50px",
+              marginBottom: "-50px",
+              animation: "fadeIn 0.8s ease-in",
+            }}
+          />
           <h1
             style={{
               fontSize: "3.5rem",

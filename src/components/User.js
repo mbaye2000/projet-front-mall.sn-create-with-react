@@ -138,7 +138,6 @@ const User = () => {
             style={{
               paddingRight: "100px",
               marginTop: "250px",
-              fontSize: "1.2rem",
               color: "#374151",
               textAlign: "center",
               fontSize: "clamp(1rem, 2vw, 1.4rem)",

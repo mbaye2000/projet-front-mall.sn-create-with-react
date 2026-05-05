@@ -25,7 +25,7 @@ function HomePage() {
         }}
         className="hero-visual-img"
         src={img2}
-        alt="Image de fond"
+        alt="Fond de page"
       />
       {/* Overlay sombre pour améliorer la lisibilité du texte */}
       <div
