@@ -63,11 +63,13 @@ function Contact() {
             src={logoMallSn}
             alt="Logo Mall SN"
             style={{
-              width: "400px",
+              width: "300px",
               height: "auto",
               marginTop: "-50px",
               marginBottom: "-50px",
               animation: "fadeIn 0.8s ease-in",
+              borderRadius: "50%",
+              boxShadow: "0 10px 30px rgba(102, 126, 234, 0.3)",
             }}
           />
           <h1

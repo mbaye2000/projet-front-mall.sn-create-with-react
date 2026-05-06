@@ -444,7 +444,7 @@ const Footer = () => {
                   fontSize: "15px",
                 }}
               >
-                <span style={{ color: "black" }}>+221 XX XXX XX XX</span>
+                <span style={{ color: "black" }}>+221 76 527 86 85</span>
               </div>
               <div
                 style={{
@@ -455,7 +455,7 @@ const Footer = () => {
                   fontSize: "15px",
                 }}
               >
-                <span>contact@mallsn.com</span>
+                <span>mallsn@gmail.com</span>
               </div>
               <div
                 style={{
