@@ -109,17 +109,9 @@ function Panier() {
               borderRadius: "28px",
               padding: "30px",
               boxShadow: "0 20px 40px rgba(20, 38, 80, 0.08)",
-              overflowX: "hidden",
-              boxSizing: "border-box",
             }}
           >
-            <p
-              style={{
-                color: "#5d6f8b",
-                lineHeight: "1.8",
-                wordBreak: "break-word",
-              }}
-            >
+            <p style={{ color: "#5d6f8b", lineHeight: "1.8" }}>
               Votre panier est vide. Ajoutez des produits depuis la page
               Produits pour commencer.
             </p>
@@ -361,113 +353,164 @@ function Panier() {
         )}
       </main>
       <style>{`
-       @media (min-width: 1024px) {
+        @media (max-width: 900px) {
+          .panier-layout {
+            grid-template-columns: 1fr !important;
+          }
 
-  .panier-main {
-    max-width: 1400px !important;
-    margin: 0 auto !important;
-    padding: 40px 32px 70px !important;
-  }
+          .panier-item {
+            grid-template-columns: 130px 1fr !important;
+            gap: 16px !important;
+            padding: 18px !important;
+            align-items: start !important;
+          }
 
-  .panier-layout {
-    display: grid !important;
-    grid-template-columns: 1.8fr 0.8fr !important;
-    gap: 32px !important;
-    align-items: start !important;
-  }
+          .panier-image-container {
+            width: 130px !important;
+            min-height: 130px !important;
+          }
+        }
 
-  .panier-products {
-    padding: 28px !important;
-    border-radius: 28px !important;
-  }
+        @media (max-width: 768px) {
+          .panier-main h1 {
+            font-size: "clamp(1.4rem, 4vw, 2rem)" !important;
+          }
 
-  .panier-summary {
-    position: sticky !important;
-    top: 120px !important;
-    padding: 28px !important;
-    border-radius: 28px !important;
-    height: fit-content !important;
-  }
+          .panier-main > p {
+            font-size: 0.95rem !important;
+          }
+        }
 
-  .panier-item {
-    display: grid !important;
-    grid-template-columns: 160px 1fr !important;
-    gap: 24px !important;
-    padding: 22px !important;
-    align-items: center !important;
-  }
+        @media (max-width: 640px) {
+          .panier-main {
+            padding: 20px 14px 50px !important;
+            gap: 18px !important;
+          }
 
-  .panier-image-container {
-    width: 160px !important;
-    min-height: 160px !important;
-    border-radius: 22px !important;
-  }
+          .panier-main header {
+            margin-bottom: 16px !important;
+          }
 
-  .panier-item h3 {
-    font-size: 1.2rem !important;
-  }
+          .panier-main h1 {
+            font-size: 1.4rem !important;
+            margin-bottom: 8px !important;
+          }
 
-  .panier-item p {
-    font-size: 0.95rem !important;
-  }
+          .panier-main > p {
+            font-size: 0.9rem !important;
+            padding: 0 8px !important;
+          }
 
-  .panier-item input {
-    width: 90px !important;
-    height: 42px !important;
-    font-size: 0.95rem !important;
-  }
+          .panier-products {
+            padding: 16px !important;
+            border-radius: 20px !important;
+          }
 
-  .panier-item button {
-    min-width: 130px !important;
-    height: 44px !important;
-    font-size: 0.9rem !important;
-  }
+          .panier-item {
+            grid-template-columns: 85px 1fr !important;
+            gap: 10px !important;
+            padding: 12px !important;
+            margin-bottom: 12px !important;
+          }
 
-  .panier-main h1 {
-    font-size: 2.5rem !important;
-  }
+          .panier-image-container {
+            width: 85px !important;
+            min-height: 85px !important;
+            border-radius: 14px !important;
+            flex-shrink: 0;
+          }
 
-  .panier-main > p {
-    font-size: 1.05rem !important;
-  }
+          .panier-item h3 {
+            font-size: 0.9rem !important;
+            margin: 0 0 4px 0 !important;
+          }
 
-  .panier-summary h2 {
-    font-size: 1.4rem !important;
-  }
+          .panier-item p {
+            font-size: 0.8rem !important;
+            margin: 2px 0 !important;
+          }
 
-  .panier-summary p {
-    font-size: 1rem !important;
-  }
+          .panier-item div:has(input) {
+            gap: 6px !important;
+          }
 
-  .panier-summary p:last-of-type {
-    font-size: 2rem !important;
-  }
+          .panier-item label {
+            font-size: 0.75rem !important;
+          }
 
-  .panier-summary button {
-    min-height: 50px !important;
-    font-size: 1rem !important;
-  }
-}
+          .panier-item input {
+            width: 70px !important;
+            height: 36px !important;
+            padding: 0 6px !important;
+            font-size: 0.8rem !important;
+            border-radius: 12px !important;
+          }
 
-@media (min-width: 1440px) {
+          .panier-item button {
+            padding: 6px 10px !important;
+            min-width: 90px !important;
+            font-size: 0.75rem !important;
+            margin-top: 8px !important;
+            height: 40px !important;
+          }
 
-  .panier-main {
-    max-width: 1600px !important;
-  }
+          .panier-summary {
+            padding: 16px !important;
+            gap: 10px !important;
+            width: 100% !important;
+            border-radius: 20px !important;
+          }
 
-  .panier-layout {
-    gap: 40px !important;
-  }
+          .panier-summary h2 {
+            font-size: 1.1rem !important;
+            margin-top: 0 !important;
+          }
 
-  .panier-item {
-    grid-template-columns: 180px 1fr !important;
-  }
+          .panier-summary p {
+            font-size: 0.85rem !important;
+            margin: 0 !important;
+          }
 
-  .panier-image-container {
-    width: 180px !important;
-    min-height: 180px !important;
-  }
-}
+          .panier-summary p:last-of-type {
+            font-size: 1.5rem !important;
+            margin: 16px 0 !important;
+          }
+
+          .panier-summary button {
+            min-height: 44px !important;
+            font-size: 0.85rem !important;
+            padding: 12px 16px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .panier-main {
+            padding: 16px 12px 40px !important;
+          }
+
+          .panier-main h1 {
+            font-size: 1.2rem !important;
+          }
+
+          .panier-item {
+            grid-template-columns: 75px 1fr !important;
+            gap: 8px !important;
+            padding: 10px !important;
+          }
+
+          .panier-image-container {
+            width: 75px !important;
+            min-height: 75px !important;
+          }
+
+          .panier-item input {
+            width: 60px !important;
+          }
+
+          .panier-summary p:last-of-type {
+            font-size: 1.3rem !important;
+          }
+        }
       `}</style>
       <Footer />
     </div>

@@ -54,7 +54,7 @@ const products = [
     title: "Robot ménager Intelligent",
     price: 85000,
     description: "Préparez vos repas rapidement avec des performances fiables.",
-    img: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=800&q=80",
+    img: "https://media.istockphoto.com/id/1468780952/fr/photo/robot-nettoyeur-automatique-de-piscine-pour-lentretien-avant-la-baignade-robot-submersible.jpg?s=612x612&w=0&k=20&c=mUE-QxK1I9gniW7Ak8VEtZywpwVeqAXwDwqt3YamefQ=",
   },
 ];
 
