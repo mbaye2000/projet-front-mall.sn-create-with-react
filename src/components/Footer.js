@@ -59,6 +59,7 @@ const Footer = () => {
 
   return (
     <footer
+      className="footer"
       style={{
         background: "white",
         color: "#e2e8f0",
@@ -82,6 +83,7 @@ const Footer = () => {
       ></div>
 
       <div
+        className="footer-top"
         style={{
           maxWidth: "1200px",
           margin: "0 auto",

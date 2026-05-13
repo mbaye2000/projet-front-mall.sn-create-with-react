@@ -44,7 +44,6 @@ function HomePage() {
         style={{
           position: "absolute",
           top: "50%",
-          left: "10%",
           transform: "translateY(-50%)",
           textAlign: "left",
           color: "white",

@@ -103,17 +103,16 @@ function Contact() {
 
         {/* Main Content Container */}
         <div
+          className="contact-grid"
           style={{
             maxWidth: "1200px",
             margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "50px",
             alignItems: "start",
           }}
         >
           {/* Left Side - Contact Info */}
           <div
+            className="contact-card"
             style={{
               background: "white",
               padding: "50px 40px",

@@ -40,8 +40,10 @@ function ProductDetail() {
   const addToCart = () => {
     if (!product) return;
     const cart = JSON.parse(localStorage.getItem("mallCart") || "[]");
-    const rawId = product._id || product.id || product.productRef || "local-product";
-    const currentId = typeof rawId === 'string' ? rawId.replace('home-', '') : rawId;
+    const rawId =
+      product._id || product.id || product.productRef || "local-product";
+    const currentId =
+      typeof rawId === "string" ? rawId.replace("home-", "") : rawId;
     const existingItem = cart.find((item) => item.productId === currentId);
 
     if (existingItem) {
@@ -68,7 +70,7 @@ function ProductDetail() {
         style={{
           minHeight: "100vh",
           background: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)",
-          padding: "40px 16px",
+          padding: "40px 56px",
         }}
       >
         <div
@@ -157,10 +159,10 @@ function ProductDetail() {
   }
 
   return (
-    <main>
+    <main className="page-shell">
       <Navbar />
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        <article>
+      <div>
+        <article className="card">
           <div
             style={{
               display: "grid",

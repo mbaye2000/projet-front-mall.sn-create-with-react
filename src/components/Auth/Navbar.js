@@ -29,6 +29,7 @@ function Navbar() {
   }, []);
 
   const [authMenuOpen, setAuthMenuOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [hoveredNavLink, setHoveredNavLink] = useState(null);
   const [windowSize, setWindowSize] = useState({
     width: typeof window !== "undefined" ? window.innerWidth : 1000,
@@ -62,7 +63,14 @@ function Navbar() {
 
   useEffect(() => {
     setAuthMenuOpen(false);
+    setMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (windowSize.width >= 1024) {
+      setMenuOpen(false);
+    }
+  }, [windowSize.width]);
 
   const handleLogout = () => {
     clearToken();
@@ -164,9 +172,30 @@ function Navbar() {
               </div>
             </div>
           </Link>
+          <button
+            type="button"
+            className="navbar-toggle"
+            onClick={() => setMenuOpen((open) => !open)}
+            aria-expanded={menuOpen}
+            aria-label="Ouvrir le menu"
+            style={{
+              display: isMobile ? "inline-flex" : "none",
+              alignItems: "center",
+              justifyContent: "center",
+              border: "none",
+              background: "transparent",
+              color: "#0f172a",
+              fontSize: "1.5rem",
+              cursor: "pointer",
+              padding: "0.75rem",
+            }}
+          >
+            {menuOpen ? "✕" : "☰"}
+          </button>
           {/*======nave barre============*/}
           <nav
             style={{
+              display: isMobile ? (menuOpen ? "block" : "none") : "block",
               flex: isMobile ? "1 0 100%" : 1,
               minWidth: 0,
               order: isMobile ? "2" : "0",

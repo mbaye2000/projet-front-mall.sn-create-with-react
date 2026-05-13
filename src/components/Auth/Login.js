@@ -4,6 +4,7 @@ import axios from "axios";
 import { API_URL } from "../Services/Config";
 import { saveToken } from "../Services/autorization";
 import logoMallSn from "../layouts/logo.jpeg";
+import PasswordInput from "../PasswordInput";
 
 function Login() {
   const navigate = useNavigate();
@@ -69,7 +70,7 @@ function Login() {
             src={logoMallSn}
             alt="Logo Mall SN"
             style={{
-              width: "400px",
+              width: "min(100%, 320px)",
               height: "auto",
               marginTop: "-50px",
               marginBottom: "-50px",
@@ -181,56 +182,16 @@ function Login() {
             </div>
 
             {/* Password */}
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <label
-                htmlFor="password"
-                style={{
-                  fontSize: "0.95rem",
-                  fontWeight: "700",
-                  color: "#1a202c",
-                  marginBottom: "10px",
-                  textTransform: "uppercase",
-                  fontFamily: "inherit",
-                  letterSpacing: "0.5px",
-                }}
-              >
-                Mot de passe
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={password}
-                onChange={handleChange}
-                placeholder="Entrez votre mot de passe"
-                autoComplete="current-password"
-                required
-                style={{
-                  padding: "14px 18px",
-                  border: "2px solid #e2e8f0",
-                  borderRadius: "12px",
-                  fontSize: "1rem",
-                  fontFamily: "inherit",
-                  transition: "all 0.3s ease",
-                  backgroundColor: "#f8fafc",
-                  color: "#1a202c",
-                  outline: "none",
-                  width: "100%",
-                  boxSizing: "border-box",
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = "#667eea";
-                  e.target.style.backgroundColor = "white";
-                  e.target.style.boxShadow =
-                    "0 0 0 4px rgba(102, 126, 234, 0.1)";
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = "#e2e8f0";
-                  e.target.style.backgroundColor = "#f8fafc";
-                  e.target.style.boxShadow = "none";
-                }}
-              />
-            </div>
+            <PasswordInput
+              id="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              placeholder="Entrez votre mot de passe"
+              label="Mot de passe"
+              autoComplete="current-password"
+              required
+            />
 
             {/* Error Message */}
             {errorMessage && (

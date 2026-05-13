@@ -12,15 +12,11 @@ function Product() {
       }}
     >
       <Navbar />
-      <div
-        style={{
-          padding: "30px",
-          maxWidth: "1400px",
-          margin: "0 auto",
-        }}
-      >
-        <h1>Produits</h1>
-        <ProductList />
+      <div className="page-shell">
+        <div style={{ padding: "2rem 0" }}>
+          <h1 className="section-headline">Produits</h1>
+          <ProductList />
+        </div>
       </div>
       <Footer />
     </div>

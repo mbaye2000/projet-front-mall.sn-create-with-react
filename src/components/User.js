@@ -5,6 +5,7 @@ import { saveToken } from "./Services/autorization";
 import Navbar from "./Auth/Navbar";
 import logo from "./layouts/logoR.png";
 import Footer from "./Footer";
+import PasswordInput from "./PasswordInput";
 
 const User = () => {
   const [formData, setFormData] = useState({
@@ -473,53 +474,30 @@ const User = () => {
               </div>
             </div>
 
-            <div style={{ display: "grid", gap: "8px" }}>
-              <label
-                htmlFor="password"
-                style={{
-                  fontWeight: "600",
-                  color: "#374151",
-                  fontSize: "0.95rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                }}
-              >
-                Mot de passe
-              </label>
-              <input
-                type="password"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-                style={{
-                  width: "90%",
-                  border: "2px solid #e5e7eb",
-                  borderRadius: "12px",
-                  background: "#ffffff",
-                  padding: "16px 18px",
-                  outline: "none",
-                  transition: "all 0.3s ease",
-                  color: "#111827",
-                  fontSize: "1rem",
-                  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
-                }}
-                onFocus={(e) => {
-                  e.target.style.borderColor = "#667eea";
-                  e.target.style.boxShadow =
-                    "0 0 0 3px rgba(102, 126, 234, 0.1)";
-                  e.target.style.transform = "translateY(-1px)";
-                }}
-                onBlur={(e) => {
-                  e.target.style.borderColor = "#e5e7eb";
-                  e.target.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.05)";
-                  e.target.style.transform = "translateY(0)";
-                }}
-                placeholder="Votre mot de passe sécurisé"
-              />
-            </div>
+            <PasswordInput
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Votre mot de passe sécurisé"
+              label="Mot de passe"
+              required
+              containerStyle={{ display: "grid", gap: "8px" }}
+              labelStyle={{
+                fontWeight: "600",
+                color: "#374151",
+                fontSize: "0.95rem",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+              style={{
+                width: "90%",
+                border: "2px solid #e5e7eb",
+                backgroundColor: "#ffffff",
+                boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
+              }}
+            />
 
             <button
               type="submit"
