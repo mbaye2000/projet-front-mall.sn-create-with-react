@@ -291,7 +291,7 @@ function Contact() {
                   </strong>
                 </div>
                 <a
-                  href="tel:+221123456789"
+                  href="tel:+221765278685"
                   style={{
                     fontSize: "1rem",
                     color: "#f5576c",
@@ -310,7 +310,7 @@ function Contact() {
                     e.currentTarget.style.textDecoration = "none";
                   }}
                 >
-                  +221 12 345 6789
+                  +221 76 527 86 85
                 </a>
               </div>
 
@@ -359,7 +359,7 @@ function Contact() {
                     fontWeight: "500",
                   }}
                 >
-                  Rue de l'Innovation, Dakar, Sénégal
+                  Pikine, Dakar, Sénégal
                 </span>
               </div>
             </div>

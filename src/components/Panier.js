@@ -53,6 +53,7 @@ function Panier() {
     <div>
       <Navbar />
       <main
+        className="panier-main"
         style={{
           maxWidth: "1180px",
           margin: "0 auto",
@@ -103,6 +104,7 @@ function Panier() {
           </div>
         ) : (
           <div
+            className="panier-layout"
             style={{
               display: "grid",
               gridTemplateColumns: "1.7fr 0.9fr",
@@ -110,6 +112,7 @@ function Panier() {
             }}
           >
             <div
+              className="panier-products"
               style={{
                 background: "#ffffff",
                 border: "1px solid #dfe6f1",
@@ -121,11 +124,12 @@ function Panier() {
               {cartItems.map((item) => (
                 <div
                   key={item.productId}
+                  className="panier-item"
                   style={{
                     display: "grid",
                     gridTemplateColumns: "170px 1fr",
                     gap: "22px",
-                    alignItems: "center",
+                    alignItems: "start",
                     padding: "24px",
                     borderRadius: "24px",
                     border: "1px solid #e8eff8",
@@ -135,6 +139,7 @@ function Panier() {
                 >
                   {item.productImage && (
                     <div
+                      className="panier-image-container"
                       style={{
                         width: "170px",
                         minHeight: "170px",
@@ -145,6 +150,7 @@ function Panier() {
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
+                        flexShrink: 0,
                       }}
                     >
                       <img
@@ -264,6 +270,7 @@ function Panier() {
             </div>
 
             <aside
+              className="panier-summary"
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -321,6 +328,166 @@ function Panier() {
           </div>
         )}
       </main>
+      <style>{`
+        @media (max-width: 900px) {
+          .panier-layout {
+            grid-template-columns: 1fr !important;
+          }
+
+          .panier-item {
+            grid-template-columns: 130px 1fr !important;
+            gap: 16px !important;
+            padding: 18px !important;
+            align-items: start !important;
+          }
+
+          .panier-image-container {
+            width: 130px !important;
+            min-height: 130px !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .panier-main h1 {
+            font-size: "clamp(1.4rem, 4vw, 2rem)" !important;
+          }
+
+          .panier-main > p {
+            font-size: 0.95rem !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .panier-main {
+            padding: 20px 14px 50px !important;
+            gap: 18px !important;
+          }
+
+          .panier-main header {
+            margin-bottom: 16px !important;
+          }
+
+          .panier-main h1 {
+            font-size: 1.4rem !important;
+            margin-bottom: 8px !important;
+          }
+
+          .panier-main > p {
+            font-size: 0.9rem !important;
+            padding: 0 8px !important;
+          }
+
+          .panier-products {
+            padding: 16px !important;
+            border-radius: 20px !important;
+          }
+
+          .panier-item {
+            grid-template-columns: 85px 1fr !important;
+            gap: 10px !important;
+            padding: 12px !important;
+            margin-bottom: 12px !important;
+          }
+
+          .panier-image-container {
+            width: 85px !important;
+            min-height: 85px !important;
+            border-radius: 14px !important;
+            flex-shrink: 0;
+          }
+
+          .panier-item h3 {
+            font-size: 0.9rem !important;
+            margin: 0 0 4px 0 !important;
+          }
+
+          .panier-item p {
+            font-size: 0.8rem !important;
+            margin: 2px 0 !important;
+          }
+
+          .panier-item div:has(input) {
+            gap: 6px !important;
+          }
+
+          .panier-item label {
+            font-size: 0.75rem !important;
+          }
+
+          .panier-item input {
+            width: 70px !important;
+            height: 36px !important;
+            padding: 0 6px !important;
+            font-size: 0.8rem !important;
+            border-radius: 12px !important;
+          }
+
+          .panier-item button {
+            padding: 6px 10px !important;
+            min-width: 90px !important;
+            font-size: 0.75rem !important;
+            margin-top: 8px !important;
+            height: 40px !important;
+          }
+
+          .panier-summary {
+            padding: 16px !important;
+            gap: 10px !important;
+            width: 100% !important;
+            border-radius: 20px !important;
+          }
+
+          .panier-summary h2 {
+            font-size: 1.1rem !important;
+            margin-top: 0 !important;
+          }
+
+          .panier-summary p {
+            font-size: 0.85rem !important;
+            margin: 0 !important;
+          }
+
+          .panier-summary p:last-of-type {
+            font-size: 1.5rem !important;
+            margin: 16px 0 !important;
+          }
+
+          .panier-summary button {
+            min-height: 44px !important;
+            font-size: 0.85rem !important;
+            padding: 12px 16px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .panier-main {
+            padding: 16px 12px 40px !important;
+          }
+
+          .panier-main h1 {
+            font-size: 1.2rem !important;
+          }
+
+          .panier-item {
+            grid-template-columns: 75px 1fr !important;
+            gap: 8px !important;
+            padding: 10px !important;
+          }
+
+          .panier-image-container {
+            width: 75px !important;
+            min-height: 75px !important;
+          }
+
+          .panier-item input {
+            width: 60px !important;
+          }
+
+          .panier-summary p:last-of-type {
+            font-size: 1.3rem !important;
+          }
+        }
+      `}</style>
       <Footer />
     </div>
   );
