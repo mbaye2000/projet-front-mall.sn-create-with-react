@@ -62,14 +62,18 @@ function Panier() {
           flexDirection: "column",
           gap: "24px",
           background: "#f4f7ff",
+          overflowX: "hidden",
+          boxSizing: "border-box",
+          width: "100%",
         }}
       >
-        <header style={{ textAlign: "center", marginBottom: "28px" }}>
+        <header style={{ textAlign: "center", marginBottom: "28px", wordBreak: "break-word", overflow: "hidden" }}>
           <h1
             style={{
               fontSize: "2.2rem",
               color: "#152033",
               marginBottom: "10px",
+              wordBreak: "break-word",
             }}
           >
             Panier
@@ -80,6 +84,9 @@ function Panier() {
               margin: "0 auto",
               color: "#5d6a84",
               lineHeight: "1.75",
+              wordBreak: "break-word",
+              wordWrap: "break-word",
+              overflowWrap: "break-word",
             }}
           >
             Retrouvez ici les produits sélectionnés et finalisez votre commande
@@ -95,9 +102,11 @@ function Panier() {
               borderRadius: "28px",
               padding: "30px",
               boxShadow: "0 20px 40px rgba(20, 38, 80, 0.08)",
+              overflowX: "hidden",
+              boxSizing: "border-box",
             }}
           >
-            <p style={{ color: "#5d6f8b", lineHeight: "1.8" }}>
+            <p style={{ color: "#5d6f8b", lineHeight: "1.8", wordBreak: "break-word" }}>
               Votre panier est vide. Ajoutez des produits depuis la page
               Produits pour commencer.
             </p>
@@ -119,6 +128,9 @@ function Panier() {
                 borderRadius: "28px",
                 padding: "30px",
                 boxShadow: "0 20px 40px rgba(20, 38, 80, 0.08)",
+                minWidth: 0,
+                overflowX: "hidden",
+                boxSizing: "border-box",
               }}
             >
               {cartItems.map((item) => (
@@ -169,6 +181,8 @@ function Panier() {
                       display: "flex",
                       flexDirection: "column",
                       gap: "12px",
+                      minWidth: 0,
+                      overflow: "hidden",
                     }}
                   >
                     <h3
@@ -176,6 +190,9 @@ function Panier() {
                         margin: "0",
                         fontSize: "1.25rem",
                         color: "#111b2b",
+                        wordBreak: "break-word",
+                        wordWrap: "break-word",
+                        overflowWrap: "break-word",
                       }}
                     >
                       {item.productName}
@@ -185,6 +202,8 @@ function Panier() {
                         margin: "0",
                         color: "#4d6078",
                         lineHeight: "1.75",
+                        wordBreak: "break-word",
+                        overflowWrap: "break-word",
                       }}
                     >
                       Référence : {item.productRef}
@@ -329,6 +348,15 @@ function Panier() {
         )}
       </main>
       <style>{`
+        * {
+          box-sizing: border-box;
+        }
+
+        html, body {
+          overflow-x: hidden !important;
+          width: 100% !important;
+        }
+
         @media (max-width: 900px) {
           .panier-layout {
             grid-template-columns: 1fr !important;
@@ -339,6 +367,7 @@ function Panier() {
             gap: 16px !important;
             padding: 18px !important;
             align-items: start !important;
+            overflow: hidden !important;
           }
 
           .panier-image-container {
@@ -349,7 +378,7 @@ function Panier() {
 
         @media (max-width: 768px) {
           .panier-main h1 {
-            font-size: "clamp(1.4rem, 4vw, 2rem)" !important;
+            font-size: clamp(1.4rem, 4vw, 2rem) !important;
           }
 
           .panier-main > p {
@@ -358,13 +387,20 @@ function Panier() {
         }
 
         @media (max-width: 640px) {
+          html, body {
+            overflow-x: hidden !important;
+          }
+
           .panier-main {
             padding: 20px 14px 50px !important;
             gap: 18px !important;
+            overflow-x: hidden !important;
+            box-sizing: border-box !important;
           }
 
           .panier-main header {
             margin-bottom: 16px !important;
+            overflow: hidden !important;
           }
 
           .panier-main h1 {
@@ -374,19 +410,25 @@ function Panier() {
 
           .panier-main > p {
             font-size: 0.9rem !important;
-            padding: 0 8px !important;
+            padding: 0 4px !important;
+            word-break: break-word !important;
           }
 
           .panier-products {
-            padding: 16px !important;
+            padding: 14px !important;
             border-radius: 20px !important;
+            box-sizing: border-box !important;
+            overflow-x: hidden !important;
           }
 
           .panier-item {
             grid-template-columns: 85px 1fr !important;
             gap: 10px !important;
-            padding: 12px !important;
+            padding: 10px !important;
             margin-bottom: 12px !important;
+            box-sizing: border-box !important;
+            min-width: 0 !important;
+            overflow: hidden !important;
           }
 
           .panier-image-container {
@@ -399,11 +441,14 @@ function Panier() {
           .panier-item h3 {
             font-size: 0.9rem !important;
             margin: 0 0 4px 0 !important;
+            word-break: break-word !important;
           }
 
           .panier-item p {
             font-size: 0.8rem !important;
             margin: 2px 0 !important;
+            word-break: break-word !important;
+            overflow-wrap: break-word !important;
           }
 
           .panier-item div:has(input) {
@@ -420,31 +465,37 @@ function Panier() {
             padding: 0 6px !important;
             font-size: 0.8rem !important;
             border-radius: 12px !important;
+            box-sizing: border-box !important;
           }
 
           .panier-item button {
-            padding: 6px 10px !important;
-            min-width: 90px !important;
+            padding: 6px 8px !important;
+            min-width: 85px !important;
             font-size: 0.75rem !important;
             margin-top: 8px !important;
-            height: 40px !important;
+            height: 38px !important;
+            box-sizing: border-box !important;
           }
 
           .panier-summary {
-            padding: 16px !important;
+            padding: 14px !important;
             gap: 10px !important;
             width: 100% !important;
             border-radius: 20px !important;
+            box-sizing: border-box !important;
+            overflow-x: hidden !important;
           }
 
           .panier-summary h2 {
-            font-size: 1.1rem !important;
+            font-size: 1.05rem !important;
             margin-top: 0 !important;
+            word-break: break-word !important;
           }
 
           .panier-summary p {
             font-size: 0.85rem !important;
             margin: 0 !important;
+            word-break: break-word !important;
           }
 
           .panier-summary p:last-of-type {
@@ -455,36 +506,280 @@ function Panier() {
           .panier-summary button {
             min-height: 44px !important;
             font-size: 0.85rem !important;
-            padding: 12px 16px !important;
+            padding: 10px 12px !important;
+            box-sizing: border-box !important;
           }
         }
 
         @media (max-width: 480px) {
           .panier-main {
-            padding: 16px 12px 40px !important;
+            padding: 14px 10px 40px !important;
+            width: 100% !important;
           }
 
           .panier-main h1 {
-            font-size: 1.2rem !important;
+            font-size: 1.15rem !important;
           }
 
-          .panier-item {
-            grid-template-columns: 75px 1fr !important;
-            gap: 8px !important;
+          .panier-main header p {
+            font-size: 0.85rem !important;
+          }
+
+          .panier-products {
             padding: 10px !important;
           }
 
+          .panier-item {
+            grid-template-columns: 70px 1fr !important;
+            gap: 8px !important;
+            padding: 8px !important;
+            margin-bottom: 10px !important;
+          }
+
           .panier-image-container {
-            width: 75px !important;
-            min-height: 75px !important;
+            width: 70px !important;
+            min-height: 70px !important;
+          }
+
+          .panier-item h3 {
+            font-size: 0.85rem !important;
+          }
+
+          .panier-item p {
+            font-size: 0.75rem !important;
           }
 
           .panier-item input {
             width: 60px !important;
+            height: 34px !important;
+            padding: 0 4px !important;
+            font-size: 0.75rem !important;
+          }
+
+          .panier-item button {
+            padding: 4px 6px !important;
+            min-width: 75px !important;
+            font-size: 0.7rem !important;
+            height: 36px !important;
+          }
+
+          .panier-summary {
+            padding: 12px !important;
+          }
+
+          .panier-summary h2 {
+            font-size: 1rem !important;
           }
 
           .panier-summary p:last-of-type {
             font-size: 1.3rem !important;
+            margin: 12px 0 !important;
+          }
+
+          .panier-summary button {
+            min-height: 42px !important;
+            font-size: 0.8rem !important;
+          }
+        }
+      `}</style>
+      <Footer />
+    </div>
+  );
+}
+
+export default Panier;
+            overflow-x: hidden !important;
+          }
+
+          .panier-main {
+            padding: 20px 14px 50px !important;
+            gap: 18px !important;
+            overflow-x: hidden !important;
+            box-sizing: border-box !important;
+          }
+
+          .panier-main header {
+            margin-bottom: 16px !important;
+            overflow: hidden !important;
+          }
+
+          .panier-main h1 {
+            font-size: 1.4rem !important;
+            margin-bottom: 8px !important;
+          }
+
+          .panier-main > p {
+            font-size: 0.9rem !important;
+            padding: 0 4px !important;
+            word-break: break-word !important;
+          }
+
+          .panier-products {
+            padding: 14px !important;
+            border-radius: 20px !important;
+            box-sizing: border-box !important;
+            overflow-x: hidden !important;
+          }
+
+          .panier-item {
+            grid-template-columns: 85px 1fr !important;
+            gap: 10px !important;
+            padding: 10px !important;
+            margin-bottom: 12px !important;
+            box-sizing: border-box !important;
+            min-width: 0 !important;
+            overflow: hidden !important;
+          }
+
+          .panier-image-container {
+            width: 85px !important;
+            min-height: 85px !important;
+            border-radius: 14px !important;
+            flex-shrink: 0;
+          }
+
+          .panier-item h3 {
+            font-size: 0.9rem !important;
+            margin: 0 0 4px 0 !important;
+            word-break: break-word !important;
+          }
+
+          .panier-item p {
+            font-size: 0.8rem !important;
+            margin: 2px 0 !important;
+            word-break: break-word !important;
+            overflow-wrap: break-word !important;
+          }
+
+          .panier-item div:has(input) {
+            gap: 6px !important;
+          }
+
+          .panier-item label {
+            font-size: 0.75rem !important;
+          }
+
+          .panier-item input {
+            width: 70px !important;
+            height: 36px !important;
+            padding: 0 6px !important;
+            font-size: 0.8rem !important;
+            border-radius: 12px !important;
+            box-sizing: border-box !important;
+          }
+
+          .panier-item button {
+            padding: 6px 8px !important;
+            min-width: 85px !important;
+            font-size: 0.75rem !important;
+            margin-top: 8px !important;
+            height: 38px !important;
+            box-sizing: border-box !important;
+          }
+
+          .panier-summary {
+            padding: 14px !important;
+            gap: 10px !important;
+            width: 100% !important;
+            border-radius: 20px !important;
+            box-sizing: border-box !important;
+            overflow-x: hidden !important;
+          }
+
+          .panier-summary h2 {
+            font-size: 1.05rem !important;
+            margin-top: 0 !important;
+            word-break: break-word !important;
+          }
+
+          .panier-summary p {
+            font-size: 0.85rem !important;
+            margin: 0 !important;
+            word-break: break-word !important;
+          }
+
+          .panier-summary p:last-of-type {
+            font-size: 1.5rem !important;
+            margin: 16px 0 !important;
+          }
+
+          .panier-summary button {
+            min-height: 44px !important;
+            font-size: 0.85rem !important;
+            padding: 10px 12px !important;
+            box-sizing: border-box !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .panier-main {
+            padding: 14px 10px 40px !important;
+            width: 100vw !important;
+            margin-left: calc(-50vw + 50%) !important;
+          }
+
+          .panier-main h1 {
+            font-size: 1.15rem !important;
+          }
+
+          .panier-main header p {
+            font-size: 0.85rem !important;
+          }
+
+          .panier-products {
+            padding: 10px !important;
+          }
+
+          .panier-item {
+            grid-template-columns: 70px 1fr !important;
+            gap: 8px !important;
+            padding: 8px !important;
+            margin-bottom: 10px !important;
+          }
+
+          .panier-image-container {
+            width: 70px !important;
+            min-height: 70px !important;
+          }
+
+          .panier-item h3 {
+            font-size: 0.85rem !important;
+          }
+
+          .panier-item p {
+            font-size: 0.75rem !important;
+          }
+
+          .panier-item input {
+            width: 60px !important;
+            height: 34px !important;
+            padding: 0 4px !important;
+            font-size: 0.75rem !important;
+          }
+
+          .panier-item button {
+            padding: 4px 6px !important;
+            min-width: 75px !important;
+            font-size: 0.7rem !important;
+            height: 36px !important;
+          }
+
+          .panier-summary {
+            padding: 12px !important;
+          }
+
+          .panier-summary h2 {
+            font-size: 1rem !important;
+          }
+
+          .panier-summary p:last-of-type {
+            font-size: 1.3rem !important;
+            margin: 12px 0 !important;
+          }
+
+          .panier-summary button {
+            min-height: 42px !important;
+            font-size: 0.8rem !important;
           }
         }
       `}</style>
