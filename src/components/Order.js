@@ -29,12 +29,16 @@ function Order() {
     const savedCart =
       location.state?.cart ||
       JSON.parse(localStorage.getItem("mallCart") || "[]");
-    
+
     // Nettoyage des IDs dans le panier chargé
-    const cleanedCart = savedCart.map(item => {
+    const cleanedCart = savedCart.map((item) => {
       const id = item.productId || item._id;
-      if (typeof id === 'string' && id.startsWith('home-')) {
-        return { ...item, productId: id.replace('home-', ''), _id: id.replace('home-', '') };
+      if (typeof id === "string" && id.startsWith("home-")) {
+        return {
+          ...item,
+          productId: id.replace("home-", ""),
+          _id: id.replace("home-", ""),
+        };
       }
       return item;
     });
@@ -87,10 +91,12 @@ function Order() {
 
     try {
       setStatus("Envoi de la commande...");
-      
+
       // Validation des données
       if (!fullname.trim() || !email.trim() || !address.trim()) {
-        setStatus("Veuillez remplir tous les champs obligatoires (Nom, Email, Adresse).");
+        setStatus(
+          "Veuillez remplir tous les champs obligatoires (Nom, Email, Adresse).",
+        );
         return;
       }
 
@@ -98,7 +104,8 @@ function Order() {
         ? cartItems.map((item) => {
             const id = item.productId || item._id;
             // Sécurité : enlever le préfixe "home-" si présent
-            const cleanId = typeof id === 'string' ? id.replace('home-', '') : id;
+            const cleanId =
+              typeof id === "string" ? id.replace("home-", "") : id;
             return {
               productId: cleanId,
               quantity: Number(item.quantity),
@@ -106,15 +113,19 @@ function Order() {
           })
         : [
             {
-              productId: selectedProductId.replace('home-', ''),
+              productId: selectedProductId.replace("home-", ""),
               quantity: Number(quantity),
             },
           ];
 
       // Vérifier si tous les IDs sont valides (pas undefined et format correct)
-      const hasInvalidId = productsToSend.some(p => !p.productId || p.productId.length !== 24);
+      const hasInvalidId = productsToSend.some(
+        (p) => !p.productId || p.productId.length !== 24,
+      );
       if (hasInvalidId) {
-        setStatus("Certains produits ont un identifiant invalide. Veuillez vider votre panier et réessayer.");
+        setStatus(
+          "Certains produits ont un identifiant invalide. Veuillez vider votre panier et réessayer.",
+        );
         console.error("IDs invalides détectés:", productsToSend);
         return;
       }
@@ -139,7 +150,7 @@ function Order() {
 
       if (orderResponse.status === 201) {
         setStatus("Commande réussie !");
-        
+
         // Redirection vers PayTech si une URL de redirection est fournie
         if (orderResponse.data.redirect_url) {
           // Nettoyer le panier avant de partir si c'est une commande groupée
@@ -207,15 +218,18 @@ function Order() {
       flexWrap: "wrap",
       gap: "24px",
       padding: "32px",
+      justifyContent: "center",
+      minWidth: 0,
     },
     card: {
       flex: "1 1 420px",
-      minWidth: "320px",
+      minWidth: 0,
       background: "#ffffff",
       border: "1px solid #e2e8f0",
       borderRadius: "28px",
       padding: "30px",
       boxShadow: "0 22px 48px rgba(15, 23, 42, 0.08)",
+      minHeight: "fit-content",
     },
     sectionTitle: {
       fontSize: "1.4rem",
@@ -287,7 +301,7 @@ function Order() {
       transition:
         "transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease",
       fontWeight: "700",
-      minWidth: "140px",
+      minWidth: 0,
       textAlign: "center",
     },
     paymentActive: {
@@ -337,12 +351,12 @@ function Order() {
     <div>
       <Navbar />
       <main style={styles.page}>
-        <section style={styles.panel}>
+        <section className="order-panel" style={styles.panel}>
           <header style={styles.header}>
             <h2 style={styles.title}>Finalisez votre commande</h2>
             <p style={styles.subtitle}>
-              Remplissez vos informations de livraison et choisissez votre
-              moyen de paiement.
+              Remplissez vos informations de livraison et choisissez votre moyen
+              de paiement.
             </p>
             {status && (
               <div
@@ -370,8 +384,8 @@ function Order() {
             )}
           </header>
 
-          <div style={styles.content}>
-            <div style={styles.card}>
+          <div className="order-content" style={styles.content}>
+            <div className="order-card" style={styles.card}>
               {cartItems.length > 0 ? (
                 <>
                   <div style={styles.inputBlock}>
@@ -488,7 +502,7 @@ function Order() {
               </div>
             </div>
 
-            <aside style={styles.card}>
+            <aside className="order-card" style={styles.card}>
               <div>
                 <h2 style={styles.sectionTitle}>Méthode de paiement</h2>
                 <p style={styles.text}>
@@ -507,6 +521,7 @@ function Order() {
                   return (
                     <label
                       key={option.value}
+                      className="order-payment-option"
                       style={{
                         ...styles.paymentOption,
                         ...(isActive ? styles.paymentActive : {}),
@@ -551,6 +566,29 @@ function Order() {
           </div>
         </section>
       </main>
+      <style>{`
+        @media (max-width: 900px) {
+          .order-panel {
+            padding: 20px 18px 26px !important;
+          }
+
+          .order-content {
+            flex-direction: column !important;
+            gap: 22px !important;
+          }
+
+          .order-card {
+            width: 100% !important;
+            min-width: 0 !important;
+            padding: 24px !important;
+          }
+
+          .order-payment-option {
+            width: 100% !important;
+            min-width: 0 !important;
+          }
+        }
+      `}</style>
       <Footer />
     </div>
   );
