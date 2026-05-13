@@ -9,7 +9,8 @@ const fallbackProducts = [
     productName: "Casque sans fil Premium",
     productDescription: "Son clair, design léger et autonomie longue durée.",
     productPrice: 45000,
-    productImage: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
+    productImage:
+      "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80",
     categoryId: { categoryName: "Électronique" },
     productRef: "CASQUE-PREMIUM",
   },
@@ -18,25 +19,30 @@ const fallbackProducts = [
     productName: "Ordinateur portable Pro",
     productDescription: "Puissance optimisée pour le travail et la création.",
     productPrice: 550000,
-    productImage: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80",
+    productImage:
+      "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=800&q=80",
     categoryId: { categoryName: "Informatique" },
     productRef: "LAPTOP-PRO",
   },
   {
     _id: "69f0e5f20c02a4d14c1aa5ce",
     productName: "Palette maquillage Luxe",
-    productDescription: "Couleurs riches et tenue longue durée pour un look parfait.",
+    productDescription:
+      "Couleurs riches et tenue longue durée pour un look parfait.",
     productPrice: 25000,
-    productImage: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
+    productImage:
+      "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
     categoryId: { categoryName: "Cosmétique" },
     productRef: "MAKEUP-LUXE",
   },
   {
     _id: "69f0e5f20c02a4d14c1aa5cf",
     productName: "Robot ménager Intelligent",
-    productDescription: "Préparez vos repas rapidement avec des performances fiables.",
+    productDescription:
+      "Préparez vos repas rapidement avec des performances fiables.",
     productPrice: 85000,
-    productImage: "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?auto=format&fit=crop&w=800&q=80",
+    productImage:
+      "https://media.istockphoto.com/id/1468780952/fr/photo/robot-nettoyeur-automatique-de-piscine-pour-lentretien-avant-la-baignade-robot-submersible.jpg?s=612x612&w=0&k=20&c=mUE-QxK1I9gniW7Ak8VEtZywpwVeqAXwDwqt3YamefQ=",
     categoryId: { categoryName: "Électroménager" },
     productRef: "ROBOT-SMART",
   },
