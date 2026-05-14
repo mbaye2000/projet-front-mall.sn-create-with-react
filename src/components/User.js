@@ -124,39 +124,6 @@ const User = () => {
           overflow: "hidden",
         }}
       >
-        <div>
-          <img
-            src={logo}
-            alt="Mall SN Logo"
-            style={{
-              position: "absolute",
-              top: "20px",
-              left: "20px",
-              marginLeft: "7rem",
-            }}
-          />
-          <p
-            style={{
-              paddingRight: "100px",
-              marginTop: "250px",
-              color: "#374151",
-              textAlign: "center",
-              fontSize: "clamp(1rem, 2vw, 1.4rem)",
-              animation: "fadeIn 1.5s ease-out",
-            }}
-          >
-            Rejoignez-nous dès aujourd’hui en créant votre compte.
-            <br />
-            Remplissez les informations demandées <br /> pour accéder à tous nos
-            services et profiter d’une expérience personnalisée.
-            <br /> Renseignez votre nom, votre adresse e-mail et choisissez un
-            mot de passe sécurisé pour protéger votre compte.
-            <br /> En créant un compte, vous pourrez suivre vos commandes,
-            enregistrer vos produits favoris et bénéficier d’offres exclusives.
-            <br /> Vous avez déjà un compte ? Connectez-vous simplement pour
-            continuer.
-          </p>
-        </div>
         <div
           style={{
             position: "absolute",
