@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 
 import Navbar from "./Auth/Navbar";
 import Login from "./Auth/Login";
@@ -7,6 +8,8 @@ function LoginPage() {
     <div>
       <Navbar />
       <Login />
+
+      <Footer />
     </div>
   );
 }
