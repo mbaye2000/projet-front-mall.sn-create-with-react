@@ -5,7 +5,10 @@ function HomePage() {
   return (
     <div
       style={{
-        position: "relative",
+        position: "absolute",
+        marginTop: "200px ",
+        top: 0,
+        left: 0,
         width: "100%",
         height: "100vh",
         overflow: "hidden",
@@ -17,7 +20,7 @@ function HomePage() {
           width: "100%",
           height: "100%",
           objectFit: "cover",
-          position: "absolute",
+          position: "relative",
           top: 0,
           left: 0,
           zIndex: 1,

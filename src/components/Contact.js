@@ -300,6 +300,7 @@ function Contact() {
                     display: "block",
                     marginLeft: "52px",
                     transition: "all 0.3s ease",
+                    width: "300px",
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.color = "#f093fb";
@@ -369,16 +370,12 @@ function Contact() {
           <form
             onSubmit={handleSubmit}
             style={{
-              background: "white",
               padding: "50px 40px",
-              borderRadius: "24px",
-              boxShadow:
-                "0 20px 60px rgba(102, 126, 234, 0.1), 0 0 1px rgba(0, 0, 0, 0.03)",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(255, 255, 255, 0.8)",
               display: "flex",
               flexDirection: "column",
               gap: "25px",
+              marginTop: "60px",
+              fontFamily: "-apple-system",
             }}
           >
             {/* Full Name */}
@@ -391,7 +388,6 @@ function Contact() {
                   color: "#1a202c",
                   marginBottom: "10px",
                   textTransform: "uppercase",
-                  letterSpacing: "0.5px",
                 }}
               >
                 Nom complet
@@ -413,6 +409,7 @@ function Contact() {
                   backgroundColor: "#f8fafc",
                   color: "#1a202c",
                   outline: "none",
+                  width: "300px",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#667eea";
@@ -460,6 +457,7 @@ function Contact() {
                   backgroundColor: "#f8fafc",
                   color: "#1a202c",
                   outline: "none",
+                  width: "300px",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#667eea";
@@ -507,6 +505,7 @@ function Contact() {
                   backgroundColor: "#f8fafc",
                   color: "#1a202c",
                   outline: "none",
+                  width: "300px",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#667eea";
@@ -556,6 +555,7 @@ function Contact() {
                   outline: "none",
                   resize: "vertical",
                   minHeight: "120px",
+                  width: "300px",
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = "#667eea";
@@ -587,7 +587,6 @@ function Contact() {
                 fontWeight: "700",
                 cursor: isSubmitting ? "not-allowed" : "pointer",
                 transition: "all 0.3s ease",
-                letterSpacing: "0.5px",
                 textTransform: "uppercase",
                 boxShadow: isSubmitting
                   ? "0 10px 30px rgba(0, 0, 0, 0.1)"

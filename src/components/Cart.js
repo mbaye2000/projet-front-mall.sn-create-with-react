@@ -108,19 +108,18 @@ function Cart() {
           </div>
         ) : (
           <div
+          /*
             style={{
               display: "grid",
               gridTemplateColumns: "1.7fr 0.9fr",
               gap: "24px",
-            }}
+            }}*/
           >
+            {/* Section des produits dans le panier */}
             <div
               style={{
-                background: "#ffffff",
-                border: "1px solid #dfe6f1",
                 borderRadius: "28px",
                 padding: "30px",
-                boxShadow: "0 20px 40px rgba(20, 38, 80, 0.08)",
               }}
             >
               {cartItems.map((item) => (
@@ -266,9 +265,10 @@ function Cart() {
                 </div>
               ))}
             </div>
-
+            {/* Section du résumé de la commande et paiement */}
             <aside
               style={{
+                /*
                 display: "flex",
                 flexDirection: "column",
                 gap: "16px",
@@ -276,7 +276,12 @@ function Cart() {
                 border: "1px solid #dfe6f1",
                 borderRadius: "28px",
                 padding: "30px",
-                boxShadow: "0 20px 40px rgba(20, 38, 80, 0.08)",
+                boxShadow: "0 20px 40px rgba(20, 38, 80, 0.08)",*/
+                justifyContent: "center",
+                display: "flex",
+                flexDirection: "column",
+                gap: "16px",
+                marginLeft: "24px",
               }}
             >
               <h2
@@ -304,7 +309,8 @@ function Cart() {
               </p>
               <button
                 style={{
-                  width: "100%",
+                  justifyContent: "center",
+                  width: "300px",
                   background:
                     "linear-gradient(135deg, #3058ff 0%, #4f6bff 100%)",
                   color: "#ffffff",
@@ -324,7 +330,6 @@ function Cart() {
               </button>
               <button
                 style={{
-                  width: "100%",
                   background: "#ffffff",
                   color: "#3058ff",
                   border: "2px solid #3058ff",
@@ -334,6 +339,7 @@ function Cart() {
                   fontWeight: "700",
                   fontSize: "0.98rem",
                   cursor: "pointer",
+                  width: "300px",
                 }}
                 onClick={handleCheckout}
               >

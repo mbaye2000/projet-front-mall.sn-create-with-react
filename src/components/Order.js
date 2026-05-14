@@ -181,22 +181,13 @@ function Order() {
   const styles = {
     page: {
       minHeight: "100vh",
-      background:
-        "radial-gradient(circle at top left, rgba(102, 126, 234, 0.24), transparent 30%), radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.2), transparent 32%), linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%)",
+
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
       padding: "40px 20px 60px",
     },
-    panel: {
-      width: "100%",
-      maxWidth: "1180px",
-      borderRadius: "32px",
-      overflow: "hidden",
-      background: "rgba(255, 255, 255, 0.96)",
-      border: "1px solid rgba(96, 165, 250, 0.18)",
-      boxShadow: "0 35px 90px rgba(15, 23, 42, 0.12)",
-    },
+
     header: {
       textAlign: "center",
       padding: "40px 32px 0",
